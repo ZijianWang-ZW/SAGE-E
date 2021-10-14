@@ -1,6 +1,6 @@
 # Applying GNN to BIM graphs for semantic enrichment
 
-<center><img src="fig/layout.png" style="zoom:100%;"/> 
+<center><img src="fig/layout.jpg" style="zoom:100%;"/> 
 
 We present a novel approach of semantic enrichment, where we represent BIM models as graphs and apply GNNs to BIM graphs for semantic enrichment. 
 
