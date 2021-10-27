@@ -32,7 +32,7 @@ The following shows the basic folder structure.
 │   ├── node_evaluation.py # The supplementary code for training process  
 │   └── train&test.ipynb # The main code about training and test
 ├── dataset
-└────── roomgraph.bin # The constructed graph dataset.
+    └──roomgraph.bin # The constructed graph dataset.
 ```
 
 # Usage
