@@ -39,9 +39,18 @@ The following shows the basic folder structure.
 Go to "code/train&test.ipynb". The code is explained step by step. 
 
 ## Bibtex
-@upload later, still wait the paper publication
+@article{WANG2022104039,
+    title = {Exploring graph neural networks for semantic enrichment: Room type classification},
+    journal = {Automation in Construction},
+    volume = {134},
+    pages = {104039},
+    year = {2022},
+    issn = {0926-5805},
+    doi = {https://doi.org/10.1016/j.autcon.2021.104039},
+    author = {Zijian Wang and Rafael Sacks and Timson Yeung}
+}
 
 ## Contact
-Welcome to contact Zijian Wang (Zijian.wang@campus.technion.ac.il) if you have any questions. 
+Welcome to contact Zijian Wang (zijianwang1995@gmail.com) if you have any questions. 
 
-If you want to know more my work, please visit: https://zijianwang1995.github.io/
+If you want to know more about my work, please visit: https://zijianwang-zw.github.io/
