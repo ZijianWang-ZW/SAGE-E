@@ -1,0 +1,14 @@
+# Core deep learning frameworks
+torch>=1.9.0
+dgl>=0.7.0
+
+# Data manipulation and scientific computing
+numpy>=1.20.0
+pandas>=1.3.0
+
+# Machine learning utilities
+scikit-learn>=0.24.0
+
+# Note: The following are Python built-in modules and don't need installation:
+# - time (built-in)
+# - os (built-in)

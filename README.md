@@ -1,6 +1,6 @@
 # Applying GNN to BIM graphs for semantic enrichment
 
-<center><img src="fig/layout.jpg" style="zoom:100%;"/> 
+<img src="fig/layout.jpg" style="zoom:100%;"/> 
 
 We present a novel approach of semantic enrichment, where we represent BIM models as graphs and apply GNNs to BIM graphs for semantic enrichment. 
 
@@ -11,34 +11,124 @@ To achieve this goal, we created a BIM graph dataset, named **RoomGraph**, and m
 The RoomGraph dataset and the source codes of SAGE-E  are open to public research use. Enjoy!
 
 
-# Requirements
-- PyTorch
-- DGL
-- numpy
-- pandas
-- scikit-learn
-- time
+# Installation
 
+## Prerequisites
+- Python 3.6 or higher
+- pip package manager
 
-Training and testing SAGE-E does not need special configurations. The basic environment including the required libraries will be fine. 
-
-
-### Folder structure
-The following shows the basic folder structure.
+## Install Dependencies
+1. Clone or download this repository:
+```bash
+git clone https://github.com/ZijianWang-ZW/SAGE-E.git
+cd SAGE-E
 ```
-├── code
-│   ├── SAGEE.py # The architecture of the GNN algorithm.
-│   ├── best_default.py # The selected model weight by authors.
-│   ├── node_evaluation.py # The supplementary code for training process  
-│   └── train&test.ipynb # The main code about training and test
-├── dataset
-    └──roomgraph.bin # The constructed graph dataset.
+
+2. Install required packages using pip:
+```bash
+pip install -r requirements.txt
+```
+
+The required libraries include:
+- **PyTorch** (>=1.9.0): Deep learning framework
+- **DGL** (>=0.7.0): Deep Graph Library for graph neural networks
+- **numpy** (>=1.20.0): Numerical computing
+- **pandas** (>=1.3.0): Data manipulation and analysis
+- **scikit-learn** (>=0.24.0): Machine learning utilities
+
+Training and testing SAGE-E does not need special GPU configurations. CPU processing is sufficient for the provided dataset.
+
+
+### Folder Structure
+The following shows the basic folder structure:
+```
+├── code/
+│   ├── SAGEE.py                 # The SAGE-E GNN architecture implementation
+│   ├── best_default.pt          # Pre-trained model weights (default configuration)
+│   ├── best_user.pt            # Pre-trained model weights (user configuration)
+│   ├── node_evaluation.py      # Utility functions for model evaluation
+│   └── train&test.ipynb        # Main training and testing notebook
+├── dataset/
+│   └── roomgraph.bin           # RoomGraph dataset (BIM graph data)
+├── fig/
+│   └── layout.jpg              # Project illustration
+├── requirements.txt            # Python dependencies
+├── README.md                   # Project documentation
+└── LICENSE                     # MIT License
 ```
 
 # Usage
-Go to "code/train&test.ipynb". The code is explained step by step. 
 
-## Bibtex
+## Quick Start
+1. **Open the main notebook**: Navigate to `code/train&test.ipynb`
+2. **Run the cells step by step**: The notebook contains detailed explanations for each step
+
+## Step-by-Step Guide
+
+### 1. Load the Dataset
+The RoomGraph dataset is provided in `dataset/roomgraph.bin`. The notebook will automatically load this dataset:
+```python
+from dgl.data.utils import load_graphs
+bg = load_graphs("../dataset/roomgraph.bin")[0]
+```
+
+### 2. Model Architecture
+The SAGE-E model is defined in `code/SAGEE.py`. It consists of:
+- **SAGEELayer**: Individual layer that processes both node and edge features
+- **SAGEE**: 4-layer network optimized for room type classification
+
+### 3. Training
+Run the training cells in the notebook to:
+- Split data into train/validation/test sets
+- Initialize the SAGE-E model
+- Train with specified hyperparameters
+- Monitor training progress
+
+### 4. Evaluation
+The notebook includes comprehensive evaluation:
+- F1-score calculation
+- Confusion matrix generation
+- Model performance metrics
+
+### 5. Using Pre-trained Models
+Two pre-trained models are provided:
+- `best_default.pt`: Model with default hyperparameters
+- `best_user.pt`: Model with optimized hyperparameters
+
+Load a pre-trained model:
+```python
+model = SAGEE(ndim_in, ndim_out, edim, activation, dropout)
+model.load_state_dict(torch.load('best_default.pt'))
+```
+
+## Customization
+
+### Using Your Own Data
+To use SAGE-E with your own BIM graph data:
+1. Convert your data to DGL graph format
+2. Ensure node and edge features are properly formatted
+3. Modify the data loading section in the notebook
+4. Adjust model parameters if needed
+
+### Hyperparameter Tuning
+Key hyperparameters you can modify:
+- `batch_size`: Batch size for training
+- `epochs`: Number of training epochs
+- `lr`: Learning rate
+- `dropout`: Dropout rate for regularization
+- Network architecture (layer dimensions in `SAGEE.py`)
+
+## Output
+The model performs room type classification on BIM graphs, outputting:
+- Predicted room types for each node
+- Classification confidence scores
+- Performance metrics (F1-score, accuracy, confusion matrix)
+
+## Citation
+
+If you use this code or the RoomGraph dataset in your research, please cite our paper:
+
+```bibtex
 @article{WANG2022104039,
     title = {Exploring graph neural networks for semantic enrichment: Room type classification},
     journal = {Automation in Construction},
@@ -49,6 +139,10 @@ Go to "code/train&test.ipynb". The code is explained step by step.
     doi = {https://doi.org/10.1016/j.autcon.2021.104039},
     author = {Zijian Wang and Rafael Sacks and Timson Yeung}
 }
+```
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 Welcome to contact Zijian Wang (zijianwang1995@gmail.com) if you have any questions. 
