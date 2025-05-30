@@ -24,19 +24,45 @@ git clone https://github.com/ZijianWang-ZW/SAGE-E.git
 cd SAGE-E
 ```
 
-2. Install required packages using pip:
+2. Install [anaconda](https://www.anaconda.com/download) and follow the following steps
+
+3. Create a new conda enviroment and install all required packages
+
 ```bash
-pip install -r requirements.txt
+conda create -n gnntutorial python=3.8 -y
 ```
 
-The required libraries include:
-- **PyTorch** (>=1.9.0): Deep learning framework
-- **DGL** (>=0.7.0): Deep Graph Library for graph neural networks
-- **numpy** (>=1.20.0): Numerical computing
-- **pandas** (>=1.3.0): Data manipulation and analysis
-- **scikit-learn** (>=0.24.0): Machine learning utilities
+```bash
+conda activate gnntutorial
+```
 
-Training and testing SAGE-E does not need special GPU configurations. CPU processing is sufficient for the provided dataset.
+Install the jupyter notebook
+```bash
+conda install jupyter notebook -y
+```
+
+Install PyTorch. Training and testing SAGE-E does not need special GPU configurations. CPU processing is sufficient for the provided dataset.
+```bash
+conda install pytorch=2.3.0 torchvision torchaudio cpuonly -c pytorch
+```
+
+```bash
+conda install -c pytorch torchdata
+```
+
+```bash
+conda install pydantic -y
+```
+
+Install DGL
+```bash
+conda install -c dglteam dgl
+```
+
+Install all other required libs
+```bash
+conda install numpy, pandas, scikit-learn     
+```
 
 
 ### Folder Structure
