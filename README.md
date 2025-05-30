@@ -13,10 +13,6 @@ The RoomGraph dataset and the source codes of SAGE-E  are open to public researc
 
 # Installation
 
-## Prerequisites
-- Python 3.6 or higher
-- pip package manager
-
 ## Install Dependencies
 1. Clone or download this repository:
 ```bash
@@ -65,7 +61,7 @@ conda install numpy, pandas, scikit-learn
 ```
 
 
-### Folder Structure
+## Folder Structure
 The following shows the basic folder structure:
 ```
 ├── code/
